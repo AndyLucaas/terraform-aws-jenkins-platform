@@ -1,0 +1,11 @@
+---
+- hosts: jenkins_server
+  gather_facts: true
+  become: true
+  tasks:
+    - name : ensure that docker is installed
+      ansible.builtin.debug :
+        msg: |
+          My hostname is: {{ ansible_facts['hostname'] }}
+          My IP address is: {{ ansible_facts['default_ipv4']['address'] }}
+        

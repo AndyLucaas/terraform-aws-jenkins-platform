@@ -19,3 +19,6 @@ variable "instance_type" {
 variable "jenkins_instance_name" {
     type = string
 }
+variable "s3_bucket_name" {
+    type = string
+}
