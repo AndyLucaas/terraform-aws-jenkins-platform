@@ -33,6 +33,13 @@ module "sg" {
       cidr_blocks = "0.0.0.0/0"
     },
     {
+      from_port = 9001
+      to_port     = 9001
+      protocol    = "tcp"
+      description = "allow sonar access"
+      cidr_blocks = "0.0.0.0/0"
+    },
+    {
       from_port   = 22
       to_port     = 22
       protocol    = "tcp"
@@ -79,7 +86,6 @@ module "ec2" {
   vpc_security_group_ids      = [module.sg.security_group_id]
   subnet_id                   = module.vpc.public_subnets[0]
   associate_public_ip_address = true
-  user_data                   = file("./script.sh")
   availability_zone           = data.aws_availability_zones.azs.names[0]
   tags = {
     Name        = "Jenkins-Server"
