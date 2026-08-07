@@ -1,0 +1,14 @@
+name: CI
+on:
+  push: 
+    paths:
+      - 
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-slim
+    steps:
+      - name: checkout sc
+        uses: action/checkout@v4
+      
